@@ -31,7 +31,7 @@ h1 {
     margin: 20px 0;
 }
 
-.border {
+.card {
     position: relative;
     height: 360px;
     width: 240px;
@@ -43,15 +43,15 @@ h1 {
     align-items: center;
     transition: 0.3s ease transform;
 }
-.border.cycling {
+.card.cycling {
     background: var(--gold-gradient);
 }
-.border.chosen {
+.card.chosen {
     background: var(--gold-gradient);
     transform: scale(1.08);
 }
 
-.card {
+.inner-container {
     position: relative;
     height: 100%;
     width: 100%;
@@ -64,7 +64,7 @@ h1 {
     transition: 0.3s ease all;
 }
 
-.card::after {
+.inner-container::after {
     content: "";
     position: absolute;
     top: 0;
@@ -75,19 +75,19 @@ h1 {
     opacity: 0.5;
 }
 
-.card .images {
+.inner-container .images {
     border-radius: 32px;
 
     position: relative;
 }
 
-.card .images .background {
+.inner-container .images .background {
     height: 245px;
     width: 240px;
     object-fit: cover;
 }
 
-.card .images .character {
+.inner-container .images .character {
     position: absolute;
     height: 256px;
     width: 245px;
@@ -98,7 +98,7 @@ h1 {
     z-index: 2;
 }
 
-.card .info {
+.inner-container .info {
     margin-top: -32px;
     display: flex;
     justify-content: center;
@@ -106,7 +106,7 @@ h1 {
     flex-direction: column;
 }
 
-.card .info h2 {
+.inner-container .info h2 {
     font-size: 16px;
     font-weight: 600;
     padding: 5px 15px;
@@ -115,14 +115,14 @@ h1 {
     z-index: 2;
 }
 
-.card .info .super-move {
+.inner-container .info .super-move {
     color: white;
     font-weight: 600;
     padding-bottom: 7px;
     z-index: 2;
 }
 
-.card .info .stats span {
+.inner-container .info .stats span {
     padding: 7px;
     font-size: 14px;
     font-weight: 600;
@@ -131,7 +131,7 @@ h1 {
     z-index: 2;
 }
 
-.card .info .stats {
+.inner-container .info .stats {
     display: flex;
     justify-content: center;
     align-items: center;

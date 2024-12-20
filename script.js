@@ -1,72 +1,75 @@
 import { characters } from "./characters.js";
 
+const title = document.querySelector("h1");
+const randomButton = document.querySelector(".random-button");
+const cardContainer = document.getElementById("card-container");
+
 document.addEventListener("DOMContentLoaded", () => {
-    const title = document.querySelector("h1");
     title.textContent = "Dragon Ball Character Cards";
 
-    const randomButton = document.querySelector("button");
     randomButton.textContent = "Choose A Random Card";
 
-    characters.forEach(createCard);
+    characters.map((character) => createCard(character));
     randomButton.addEventListener("click", chooseRandomCard);
 });
 
 const createCard = (character) => {
-    const cardContainer = document.getElementById("card-container");
-    const borderDiv = document.createElement("div");
-    borderDiv.classList.add("border");
+    const div = document.createElement("div");
+    div.classList.add("card");
 
-    borderDiv.innerHTML = `
-    <div class="card">
-        <div class="images">
-            <img class="background" src="${character.background}" />
-            <img class="character" src="${character.character}" />
-        </div>
-        <div class="info">
-            <h2>${character.name}</h2>
-            <span class="super-move">Super Move: ${character.superMove}</span>
-            <div class="stats">
-                <span>Strength: ${character.strength}</span>
-                <span>Speed: ${character.speed}</span>
-                <span>Energy: ${character.energy}</span>
-                <span>Defense: ${character.defense}</span>
+    div.innerHTML = `
+        <div class="inner-container">
+            <div class="images">
+                <img class="background" src="${character.background}" />
+                <img class="character" src="${character.fighter}" />
+            </div>
+            <div class="info">
+                <h2>${character.name}</h2>
+                <span class="super-move">Super Move: ${character.superMove}</span>
+                <div class="stats">
+                    <span>Strength: ${character.strength}</span>
+                    <span>Speed: ${character.speed}</span>
+                    <span>Energy: ${character.energy}</span>
+                    <span>Defense: ${character.defense}</span>
+                </div>
             </div>
         </div>
-    </div>
     `;
 
-    cardContainer.appendChild(borderDiv);
+    cardContainer.appendChild(div);
 };
 
 const chooseRandomCard = () => {
-    const borders = document.querySelectorAll(".border");
+    const cards = document.querySelectorAll(".card");
 
-    borders.forEach((border) => {
-        border.classList.remove("cycling");
-        border.classList.remove("chosen");
+    cards.forEach((card) => {
+        card.classList.remove("cycling");
+        card.classList.remove("chosen");
     });
 
     let currentIndex = 0; // Track the current border being highlighted
     const totalCycles = 15; // Number of cycles through all cards
     let cycleCount = 0; // Counter for the number of cycles
-    const interval = 200; // Speed of cycling in milliseconds
 
-    const intervalId = setInterval(() => {
-        borders[currentIndex].classList.remove("cycling");
+    const interval = setInterval(() => {
+        cards[currentIndex].classList.remove("cycling");
 
-        currentIndex = (currentIndex + 1) % borders.length;
+        currentIndex = currentIndex + 1;
 
-        borders[currentIndex].classList.add("cycling");
+        currentIndex = currentIndex % cards.length;
+
+        cards[currentIndex].classList.add("cycling");
 
         cycleCount++;
 
         if (cycleCount > totalCycles) {
-            clearInterval(intervalId);
+            clearInterval(interval);
 
-            const finalIndex = Math.floor(Math.random() * borders.length);
-            borders.forEach((border) => border.classList.remove("cycling"));
+            const randomIndex = Math.floor(Math.random() * cards.length);
 
-            borders[finalIndex].classList.add("chosen");
+            cards.forEach((card) => card.classList.remove("cycling"));
+
+            cards[randomIndex].classList.add("chosen");
         }
-    }, interval);
+    }, 200);
 };

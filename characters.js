@@ -6,7 +6,7 @@ export const characters = [
         speed: 9000,
         energy: 9500,
         defense: 8500,
-        character: "./images/characters/frieza.png",
+        fighter: "./images/characters/frieza.png",
         background: "./images/background/frieza.jpg",
     },
     {
@@ -16,7 +16,7 @@ export const characters = [
         speed: 10000,
         energy: 9500,
         defense: 9000,
-        character: "./images/characters/goku.png",
+        fighter: "./images/characters/goku.png",
         background: "./images/background/goku.jpg",
     },
     {
@@ -26,7 +26,7 @@ export const characters = [
         speed: 5500,
         energy: 6000,
         defense: 4000,
-        character: "./images/characters/krillin.png",
+        fighter: "./images/characters/krillin.png",
         background: "./images/background/krillin.jpg",
     },
     {
@@ -36,7 +36,7 @@ export const characters = [
         speed: 9200,
         energy: 8800,
         defense: 9000,
-        character: "./images/characters/vegeta.png",
+        fighter: "./images/characters/vegeta.png",
         background: "./images/background/vegeta.jpg",
     },
     {
@@ -46,7 +46,7 @@ export const characters = [
         speed: 4000,
         energy: 3500,
         defense: 2500,
-        character: "./images/characters/yamcha.png",
+        fighter: "./images/characters/yamcha.png",
         background: "./images/background/yamcha.jpg",
     },
 ];
