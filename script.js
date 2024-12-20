@@ -1,4 +1,4 @@
-import { characters } from "./characters.js";
+import characters from "./characters.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const randomButton = document.querySelector("button");
@@ -10,16 +10,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const createCard = (character) => {
     const cardContainer = document.getElementById("card-container");
-    const card = document.createElement("div");
-    card.classList.add("card");
+    const div = document.createElement("div");
+    div.classList.add("card");
 
-    card.innerHTML = `
-        <img src="${character.image}">
-        <div class="name">Name: ${character.name}</div>
-        <div class="power">Power: ${character.power}</div>
+    div.innerHTML = `
+        <div class="images">
+            <img class="background" src="${character.background}" />
+            <img class="character" src="${character.character}" />
+        </div>
+        <div class="info">
+            <h2>${character.name}</h2>
+            <span class="super-move">Super Move: ${character.superMove}</span>
+            <div class="stats">
+                <span>Strength: ${character.strength}</span>
+                <span>Speed: ${character.speed}</span>
+                <span>Energy: ${character.energy}</span>
+                <span>Defense: ${character.defense}</span>
+            </div>
+        </div>
     `;
 
-    cardContainer.appendChild(card);
+    cardContainer.appendChild(div);
 };
 
 const chooseRandomCard = () => {
