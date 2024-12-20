@@ -1,4 +1,4 @@
-import characters from "./characters.js";
+import { characters } from "./characters.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const title = document.querySelector("h1");
