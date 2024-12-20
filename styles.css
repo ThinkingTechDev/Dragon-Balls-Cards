@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 * {
     --gold-gradient: linear-gradient(90deg, #ebd197, #b48811);
+    --orange-gradient: linear-gradient(90deg, #ff8b00, #f95200);
 }
 
 body {
@@ -14,7 +15,12 @@ body {
 }
 
 h1 {
-    color: #d35400;
+    font-size: 3rem;
+    text-align: center;
+    margin: 20px 0;
+    font-family: "Bangers", sans-serif;
+    color: black;
+    text-transform: uppercase;
 }
 
 #card-container {
@@ -25,17 +31,37 @@ h1 {
     margin: 20px 0;
 }
 
+.border {
+    position: relative;
+    height: 360px;
+    width: 240px;
+    border-radius: 38px;
+    background: black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease transform;
+}
+.border.cycling {
+    background: var(--gold-gradient);
+}
+.border.chosen {
+    background: var(--gold-gradient);
+    transform: scale(1.08);
+}
+
 .card {
     position: relative;
-    height: 450px;
-    width: 300px;
-    border-radius: 45px;
+    height: 100%;
+    width: 100%;
+    border-radius: 32px;
     background-color: black;
-    border: 10px solid black;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: 0.3s ease all;
 }
 
 .card::after {
@@ -50,19 +76,21 @@ h1 {
 }
 
 .card .images {
+    border-radius: 32px;
+
     position: relative;
 }
 
 .card .images .background {
-    height: 305px;
-    width: 300px;
+    height: 245px;
+    width: 240px;
     object-fit: cover;
 }
 
 .card .images .character {
     position: absolute;
-    height: 320px;
-    width: 305px;
+    height: 256px;
+    width: 245px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -71,7 +99,7 @@ h1 {
 }
 
 .card .info {
-    margin-top: -35px;
+    margin-top: -32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,9 +107,9 @@ h1 {
 }
 
 .card .info h2 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
-    padding: 5px 20px;
+    padding: 5px 15px;
     border-radius: 10px;
     background: linear-gradient(to right, #ebd197, #b48811);
     z-index: 2;
@@ -90,12 +118,13 @@ h1 {
 .card .info .super-move {
     color: white;
     font-weight: 600;
-    padding-bottom: 10px;
+    padding-bottom: 7px;
     z-index: 2;
 }
 
 .card .info .stats span {
-    padding: 10px;
+    padding: 7px;
+    font-size: 14px;
     font-weight: 600;
     color: white;
     min-width: 40%;
@@ -112,28 +141,19 @@ h1 {
     z-index: 2;
 }
 
-.card.cycling {
-    /* border-color: gold; */
-    background-color: #fce4a8;
-}
-
-.card.chosen {
-    border-color: gold;
-    background-color: #fff5c3;
-    transform: scale(1.08);
-}
-
 button {
     padding: 10px 20px;
+    margin-bottom: 20px;
     font-size: 16px;
-    background-color: #d35400;
+    background: var(--orange-gradient);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 0.3s ease all;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #b03a00;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
