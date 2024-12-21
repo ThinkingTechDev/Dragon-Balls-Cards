@@ -31,7 +31,7 @@ h1 {
     margin: 20px 0;
 }
 
-.border {
+.card {
     position: relative;
     height: 360px;
     width: 240px;
@@ -43,15 +43,15 @@ h1 {
     align-items: center;
     transition: 0.3s ease transform;
 }
-.border.cycling {
+.card.cycling {
     background: var(--gold-gradient);
 }
-.border.chosen {
+.card.chosen {
     background: var(--gold-gradient);
     transform: scale(1.08);
 }
 
-.card {
+.card .inner-container {
     position: relative;
     height: 100%;
     width: 100%;
@@ -64,7 +64,7 @@ h1 {
     transition: 0.3s ease all;
 }
 
-.card::after {
+.card .inner-container::after {
     content: "";
     position: absolute;
     top: 0;
@@ -75,19 +75,19 @@ h1 {
     opacity: 0.5;
 }
 
-.card .images {
+.card .inner-container .images {
     border-radius: 32px;
-
     position: relative;
 }
 
-.card .images .background {
+.card .inner-container .images .background {
+    position: relative;
     height: 245px;
     width: 240px;
     object-fit: cover;
 }
 
-.card .images .character {
+.card .inner-container .images .character {
     position: absolute;
     height: 256px;
     width: 245px;
@@ -95,50 +95,47 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     object-fit: contain;
-    z-index: 2;
+    z-index: 1;
 }
 
-.card .info {
+.card .inner-container .info {
     margin-top: -32px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 
-.card .info h2 {
+.card .inner-container .info h2 {
     font-size: 16px;
     font-weight: 600;
     padding: 5px 15px;
     border-radius: 10px;
     background: linear-gradient(to right, #ebd197, #b48811);
-    z-index: 2;
 }
 
-.card .info .super-move {
+.card .inner-container .info .super-move {
     color: white;
     font-weight: 600;
     padding-bottom: 7px;
-    z-index: 2;
 }
 
-.card .info .stats span {
+.card .inner-container .info .stats span {
     padding: 7px;
     font-size: 14px;
     font-weight: 600;
     color: white;
     min-width: 40%;
-    z-index: 2;
 }
 
-.card .info .stats {
+.card .inner-container .info .stats {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    z-index: 2;
 }
 
 button {
