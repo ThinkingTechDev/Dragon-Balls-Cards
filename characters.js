@@ -1,4 +1,4 @@
-export default [
+export const characters = [
     {
         name: "Golden Frieza",
         superMove: "Death Beam",
