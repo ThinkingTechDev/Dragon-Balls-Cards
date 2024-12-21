@@ -54,7 +54,7 @@ const chooseRandomCard = () => {
     const interval = setInterval(() => {
         cards[currentIndex].classList.remove("cycling");
 
-        currentIndex = currentIndex + 1;
+        currentIndex++;
 
         currentIndex = currentIndex % cards.length;
 
