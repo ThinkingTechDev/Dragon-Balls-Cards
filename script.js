@@ -18,20 +18,18 @@ const createCard = (character) => {
     div.classList.add("card");
 
     div.innerHTML = `
-        <div class="inner-container">
-            <div class="images">
-                <img class="background" src="${character.background}" />
-                <img class="character" src="${character.fighter}" />
-            </div>
-            <div class="info">
-                <h2>${character.name}</h2>
-                <span class="super-move">Super Move: ${character.superMove}</span>
-                <div class="stats">
-                    <span>Strength: ${character.strength}</span>
-                    <span>Speed: ${character.speed}</span>
-                    <span>Energy: ${character.energy}</span>
-                    <span>Defense: ${character.defense}</span>
-                </div>
+        <div class="images">
+            <img class="background" src="${character.background}" />
+            <img class="character" src="${character.fighter}" />
+        </div>
+        <div class="info">
+            <h2>${character.name}</h2>
+            <span class="super-move">Super Move: ${character.superMove}</span>
+            <div class="stats">
+                <span>Strength: ${character.strength}</span>
+                <span>Speed: ${character.speed}</span>
+                <span>Energy: ${character.energy}</span>
+                <span>Defense: ${character.defense}</span>
             </div>
         </div>
     `;
