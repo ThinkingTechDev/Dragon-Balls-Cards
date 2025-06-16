@@ -63,10 +63,9 @@ const chooseRandomCard = () => {
         if (cycleCount > totalCycles) {
             clearInterval(interval);
 
-            const randomIndex = Math.floor(Math.random() * cards.length);
-
             cards.forEach((card) => card.classList.remove("cycling"));
 
+            const randomIndex = Math.floor(Math.random() * cards.length);
             cards[randomIndex].classList.add("chosen");
         }
     }, 200);
